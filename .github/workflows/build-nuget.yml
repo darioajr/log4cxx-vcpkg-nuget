@@ -59,7 +59,7 @@ jobs:
           generate_release_notes: true
           make_latest: true
           fail_on_unmatched_files: false
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT_TOKEN }}
   
       - name: Upload NuGet artifact
         uses: actions/upload-artifact@v4

@@ -1,6 +1,6 @@
 # log4cxx.vcpkg
 
-Este pacote NuGet fornece a biblioteca **log4cxx** versão **0.10.0**, compilada com o [vcpkg](https://github.com/microsoft/vcpkg) para **Windows x64** usando o **Microsoft Visual Studio 2022 (toolset v143)**.
+Este pacote NuGet fornece a biblioteca **log4cxx**, compilada com o [vcpkg](https://github.com/microsoft/vcpkg) para **Windows x64** usando o **Microsoft Visual Studio 2022 (toolset v143)**.
 
 ## 📦 Conteúdo do pacote
 
