@@ -47,9 +47,6 @@ jobs:
       - name: Publish on NuGet.org
         run: nuget push out\*.nupkg -ApiKey ${{ secrets.NUGET_API_KEY }} -Source https://api.nuget.org/v3/index.json
 
-      - name: Rename nupkg to zip Artifact
-        run: 
-
       - name: Zip .nupkg as .nupkg.zip
         shell: pwsh
         run: |
