@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>log4cxx.vcpkg</id>
+    <version>0.10.0</version>
+    <authors>Apache.org Project</authors>
+    <owners>Dario Alves Junior</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">Apache-2.0</license>
+    <projectUrl>https://github.com/darioajr/log4cxx-vcpkg-nuget</projectUrl>
+    <description>log4cxx build from vcpkg for Windows x64 vc143 (Visual Studio 2022). Includes static and dynamic libraries, headers, and dependencies.</description>
+    <tags>native log4cxx vcpkg c++ xml logging</tags>
+    <readme>README.md</readme>
+  </metadata>
+  <files>
+    <!-- Documentação -->
+    <file src="README.md" target="" />
+
+    <!-- Headers -->
+    <file src="vcpkg_installed\x64-windows\include\**\*.*" target="build\native\include" />
+
+    <!-- Libs Release -->
+    <file src="vcpkg_installed\x64-windows\lib\*.lib" target="build\native\lib\x64\Release" />
+
+    <!-- Libs Debug -->
+    <file src="vcpkg_installed\x64-windows\debug\lib\*.lib" target="build\native\lib\x64\Debug" />
+
+    <!-- DLLs Release -->
+    <file src="vcpkg_installed\x64-windows\bin\*.dll" target="build\native\bin\x64\Release" />
+    <file src="vcpkg_installed\x64-windows\bin\*.pdb" target="build\native\bin\x64\Release" />
+
+    <!-- DLLs Debug -->
+    <file src="vcpkg_installed\x64-windows\debug\bin\*.dll" target="build\native\bin\x64\Debug" />
+    <file src="vcpkg_installed\x64-windows\debug\bin\*.pdb" target="build\native\bin\x64\Debug" />
+  </files>
+</package>

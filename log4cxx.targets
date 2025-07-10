@@ -1,0 +1,45 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!-- Propriedades comuns -->
+  <PropertyGroup>
+    <Log4cxxRoot>$(MSBuildThisFileDirectory)</Log4cxxRoot>
+    <Log4cxxInclude>$(Log4cxxRoot)include</Log4cxxInclude>
+    <Log4cxxLibRelease>$(Log4cxxRoot)lib\x64\Release</Log4cxxLibRelease>
+    <Log4cxxLibDebug>$(Log4cxxRoot)lib\x64\Debug</Log4cxxLibDebug>
+    <Log4cxxBinRelease>$(Log4cxxRoot)bin\x64\Release</Log4cxxBinRelease>
+    <Log4cxxBinDebug>$(Log4cxxRoot)bin\x64\Debug</Log4cxxBinDebug>
+  </PropertyGroup>
+
+  <!-- x64 Release -->
+  <ItemDefinitionGroup Condition="'$(Platform)' == 'x64' and '$(Configuration)' == 'Release'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(Log4cxxInclude);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(Log4cxxLibRelease);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>
+        log4cxx.lib;apr-1.lib;aprutil-1.lib;expat.lib;iconv.lib;lzma.lib;zlib.lib;%(AdditionalDependencies)
+      </AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      if exist "$(Log4cxxBinRelease)\*.dll" xcopy /Y /D "$(Log4cxxBinRelease)\*.dll" "$(OutDir)"
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+
+  <!-- x64 Debug -->
+  <ItemDefinitionGroup Condition="'$(Platform)' == 'x64' and '$(Configuration)' == 'Debug'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(Log4cxxInclude);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(Log4cxxLibDebug);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>
+        log4cxx.lib;apr-1.lib;aprutil-1.lib;expatd.lib;iconv.lib;lzma.lib;zlibd.lib;%(AdditionalDependencies)
+      </AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      if exist "$(Log4cxxBinDebug)\*.dll" xcopy /Y /D "$(Log4cxxBinDebug)\*.dll" "$(OutDir)"
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+
+</Project>
