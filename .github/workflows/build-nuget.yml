@@ -47,22 +47,36 @@ jobs:
       - name: Publish on NuGet.org
         run: nuget push out\*.nupkg -ApiKey ${{ secrets.NUGET_API_KEY }} -Source https://api.nuget.org/v3/index.json
 
+      - name: Rename nupkg to zip Artifact
+        run: 
+
+      - name: Zip .nupkg as .nupkg.zip
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Path "outzip" -Force | Out-Null
+          Get-ChildItem "out" -Filter *.nupkg | ForEach-Object {
+            $zipPath = "outzip/$($_.Name).zip"
+            Compress-Archive -Path $_.FullName -DestinationPath $zipPath
+            Rename-Item -Path $zipPath -NewName "$($_.Name).nupkg.zip"
+          }
+
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
           name: Release ${{ env.PACKAGE_VERSION }}
           tag_name: ${{ env.PACKAGE_VERSION }}
           files: |
-            ${{env.GITHUB_WORKSPACE}}\out\*.nupkg
+            ${{env.GITHUB_WORKSPACE}}\outzip\*.nupkg.zip
           draft: false
           prerelease: false
           generate_release_notes: true
           make_latest: true
           fail_on_unmatched_files: false
           token: ${{ secrets.PAT_TOKEN }}
-  
+
       - name: Upload NuGet artifact
         uses: actions/upload-artifact@v4
         with:
           name: log4cxx-nupkg
-          path: out\*.nupkg
+          path: |
+            outzip\*.nupkg.zip
