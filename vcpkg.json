@@ -1,14 +1,14 @@
 {
   "name": "log4cxx-vcpkg",
-  "version-string": "0.13.0",
-  "description": "Projeto fixando log4cxx",
+  "version-string": "1.0.0",
+  "description": "log4cxx project",
   "dependencies": [
     "log4cxx"
   ],
   "overrides": [
     {
       "name": "log4cxx",
-      "version": "0.13.0.1",
+      "version": "1.0.0",
       "port-version": 0
     }
   ]
