@@ -1,42 +1,46 @@
 # log4cxx.vcpkg
 
-Este pacote NuGet fornece a biblioteca **log4cxx**, compilada com o [vcpkg](https://github.com/microsoft/vcpkg) para **Windows x64** usando o **Microsoft Visual Studio 2022 (toolset v143)**.
+This NuGet package provides the **log4cxx** library, compiled with [vcpkg](https://github.com/microsoft/vcpkg) for **Windows x64** using **Microsoft Visual Studio 2022 (toolset v143)**.
 
-## 📦 Conteúdo do pacote
+## 📦 Package Contents
 
-- Arquivos de cabeçalho (`include/log4cxx/*.h`)
-- Bibliotecas estáticas:
+- Header files (`include/log4cxx/*.h`)
+- Static libraries:
   - `log4cxx.lib`
   - `charset.lib`
   - `iconv.lib`
   - `lzma.lib`
-  - `zlib.lib` (ou `zlibd.lib` no modo Debug)
-- Bibliotecas dinâmicas (`.dll`) para Debug e Release
-- Arquivo `.targets` que configura automaticamente:
-  - Caminhos de include
-  - Caminhos de biblioteca
-  - Dependências
-  - Cópia dos `.dll` para a pasta de saída (`$(OutDir)`)
+  - `zlib.lib` (or `zlibd.lib` in Debug mode)
+- Dynamic libraries (`.dll`) for Debug and Release
+- `.targets` file that automatically configures:
+  - Include paths
+  - Library paths
+  - Dependencies
+  - Copy `.dll` files to output folder (`$(OutDir)`)
 
-## ⚙️ Como usar
+## ⚙️ How to use
 
-1. Adicione o pacote ao seu projeto C++ via NuGet.
-2. O Visual Studio aplicará automaticamente as configurações via o arquivo `.targets` incluído.
-3. Certifique-se de que o projeto esteja em plataforma **x64**.
+1. Add the package to your C++ project via NuGet.
+2. Visual Studio will automatically apply the settings via the included `.targets` file.
+3. Make sure your project is set to **x64** platform.
 
-## 🔁 Configuração automática
+## 🔁 Automatic configuration
 
-- Em **Release**: links com `zlib.lib`
-- Em **Debug**: links com `zlibd.lib`
-- As DLLs são copiadas para `$(OutDir)` após o build
+- In **Release**: links with `zlib.lib`
+- In **Debug**: links with `zlibd.lib`
+- DLLs are copied to `$(OutDir)` after build
 
-## 📝 Licença
+## 📦 NuGet Package
+
+- Available at: https://www.nuget.org/packages/log4cxx.vcpkg/
+
+## 📝 License
 
 - **log4cxx**: [Apache-2.0](https://spdx.org/licenses/Apache-2.0.html)
-- Este pacote NuGet: [Apache-2.0](https://spdx.org/licenses/Apache-2.0.html)
+- This NuGet package: [Apache-2.0](https://spdx.org/licenses/Apache-2.0.html)
 
-## 🔗 Links úteis
+## 🔗 Useful Links
 
-- Site oficial: https://logging.apache.org/log4cxx/
-- Fonte: https://github.com/apache/logging-log4cxx
+- Official site: https://logging.apache.org/log4cxx/
+- Source: https://github.com/apache/logging-log4cxx
 - vcpkg: https://github.com/microsoft/vcpkg
