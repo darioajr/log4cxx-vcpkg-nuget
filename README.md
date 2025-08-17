@@ -2,6 +2,8 @@
 
 This NuGet package provides the **log4cxx** library, compiled with [vcpkg](https://github.com/microsoft/vcpkg) for **Windows x64** using **Microsoft Visual Studio 2022 (toolset v143)**.
 
+[![Nuget Version](https://img.shields.io/nuget/v/log4cxx.vcpkg)](https://www.nuget.org/packages/log4cxx.vcpkg)
+
 ## 📦 Package Contents
 
 - Header files (`include/log4cxx/*.h`)
