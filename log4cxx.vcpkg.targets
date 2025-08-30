@@ -6,8 +6,6 @@
     <Log4cxxInclude>$(Log4cxxRoot)include</Log4cxxInclude>
     <Log4cxxLibRelease>$(Log4cxxRoot)lib\x64\Release</Log4cxxLibRelease>
     <Log4cxxLibDebug>$(Log4cxxRoot)lib\x64\Debug</Log4cxxLibDebug>
-    <Log4cxxBinRelease>$(Log4cxxRoot)bin\x64\Release</Log4cxxBinRelease>
-    <Log4cxxBinDebug>$(Log4cxxRoot)bin\x64\Debug</Log4cxxBinDebug>
   </PropertyGroup>
 
   <!-- x64 Release -->
@@ -18,11 +16,11 @@
     <Link>
       <AdditionalLibraryDirectories>$(Log4cxxLibRelease);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>
-        log4cxx.lib;apr-1.lib;aprutil-1.lib;expat.lib;iconv.lib;lzma.lib;zlib.lib;%(AdditionalDependencies)
+        log4cxx.lib;libapr-1.lib;libaprutil-1.lib;libaprapp-1.lib;libexpat.lib;apr_dbd_odbc-1.lib;apr_ldap-1.lib;%(AdditionalDependencies)
       </AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      if exist "$(Log4cxxBinRelease)\*.dll" xcopy /Y /D "$(Log4cxxBinRelease)\*.dll" "$(OutDir)"
+      <Command>xcopy /Y /D "$(MSBuildThisFileDirectory)bin\x64\Release\*.dll" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
 
@@ -34,11 +32,11 @@
     <Link>
       <AdditionalLibraryDirectories>$(Log4cxxLibDebug);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>
-        log4cxx.lib;apr-1.lib;aprutil-1.lib;expatd.lib;iconv.lib;lzma.lib;zlibd.lib;%(AdditionalDependencies)
+        log4cxx.lib;libapr-1.lib;libaprutil-1.lib;libaprapp-1.lib;libexpatd.lib;apr_dbd_odbc-1.lib;apr_ldap-1.lib;%(AdditionalDependencies)
       </AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      if exist "$(Log4cxxBinDebug)\*.dll" xcopy /Y /D "$(Log4cxxBinDebug)\*.dll" "$(OutDir)"
+      <Command>xcopy /Y /D "$(MSBuildThisFileDirectory)bin\x64\Debug\*.dll" "$(OutDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
 
