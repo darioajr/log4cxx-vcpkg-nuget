@@ -8,7 +8,7 @@
   "overrides": [
     {
       "name": "log4cxx",
-      "version": "0.10.0-2",
+      "version": "0.11.0",
       "port-version": 0
     }
   ]
